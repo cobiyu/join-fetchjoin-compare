@@ -31,4 +31,11 @@ class FetchJoinApplicationTests {
     System.out.println(memberUsingFetchJoin);
   }
 
+  @Test
+  public void joinConditionTest() {
+    List<Team> memberUsingJoin = teamService.findByMemberNameWithMemberUsingJoin("team2member4");
+    //break point
+    System.out.println(memberUsingJoin);
+  }
+  
 }

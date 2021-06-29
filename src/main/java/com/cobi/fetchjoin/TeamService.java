@@ -47,8 +47,14 @@ public class TeamService {
       .name("team2member4")
       .age(4)
       .build();
+
+    Member member5 = Member.builder()
+      .name("team2member5")
+      .age(5)
+      .build();
     
     team2.addMember(member4);
+    team2.addMember(member5);
 
     teamRepository.save(team1);
     teamRepository.save(team2);
@@ -62,5 +68,10 @@ public class TeamService {
   @Transactional
   public List<Team> findAllWithMemberUsingFetchJoin(){
     return teamRepository.findAllWithMemberUsingFetchJoin();
+  }
+
+  @Transactional
+  public List<Team> findByMemberNameWithMemberUsingJoin(String memberName){
+    return teamRepository.findByMemberNameWithMemberUsingJoin(memberName);
   }
 }
